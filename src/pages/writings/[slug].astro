@@ -1,0 +1,23 @@
+---
+import Layout from "../../components/Layout.astro";
+import { getEntryBySlug } from "astro:content";
+const { slug } = Astro.params;
+const entry = await getEntryBySlug("writings", slug);
+---
+
+<Layout>
+  <article class="writing">
+    <h1>{entry.data.title}</h1>
+    <div innerHTML={entry.body} />
+  </article>
+</Layout>
+
+<style>
+.writing {
+  max-width: 700px;
+  margin: 4rem auto;
+  padding: 1rem;
+  color: white;
+  font-family: serif;
+}
+</style>

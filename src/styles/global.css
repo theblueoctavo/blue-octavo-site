@@ -46,3 +46,23 @@ body, html {
 .content-page {
   padding: 4rem;
 }
+
+body::before {
+  content: "";
+  background: url("/static-overlay.gif") repeat;
+  opacity: 0.05;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  mix-blend-mode: screen;
+  animation: flicker 0.2s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.03; }
+  50% { opacity: 0.06; }
+}

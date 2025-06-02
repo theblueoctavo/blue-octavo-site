@@ -1,19 +1,26 @@
 ---
-import "../styles/global.css";
+import Layout from "../components/Layout.astro";
+import NavLink from "../components/NavLink.astro";
 ---
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Blue Octavo Navigation</title>
-  </head>
-  <body class="nav-page">
-    <nav>
-      <ul>
-        <li><a href="https://discord.com" target="_blank">Discord</a></li>
-        <li><a href="/music">Music</a></li>
-        <li><a href="/writings">Writings</a></li>
-        <li><a href="/merch">Merch</a></li>
-      </ul>
-    </nav>
-  </body>
-</html>
+
+<Layout>
+  <main class="nav">
+    <NavLink href="https://discord.gg/" icon="/icons/discord.svg" label="Discord" delay="0s" />
+    <NavLink href="/music" icon="/icons/music.svg" label="Music" delay="0.2s" />
+    <NavLink href="/writings" icon="/icons/writings.svg" label="Writings" delay="0.4s" />
+    <NavLink href="/merch" icon="/icons/merch.svg" label="Merch" delay="0.6s" />
+  </main>
+</Layout>
+
+<style>
+main.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  min-height: 100vh;
+  background: black;
+  text-align: center;
+}
+</style>

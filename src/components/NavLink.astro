@@ -1,0 +1,37 @@
+---
+import FadeIn from "./FadeIn.astro";
+
+export interface Props {
+  href: string;
+  icon: string;
+  label: string;
+  delay: string;
+}
+const { href, icon, label, delay } = Astro.props;
+---
+
+<FadeIn delay={delay}>
+  <a href={href} class="nav-link">
+    <img src={icon} alt="" class="icon" />
+    <span>{label}</span>
+  </a>
+</FadeIn>
+
+<style>
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.2s;
+}
+.nav-link:hover {
+  transform: scale(1.05);
+}
+.icon {
+  width: 24px;
+  height: 24px;
+}
+</style>
