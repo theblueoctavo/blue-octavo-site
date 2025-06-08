@@ -24,6 +24,14 @@
         animation: fadeIn 1s ease forwards;
       }
 
+      .main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+      }
+
       h1 {
         font-size: 3rem;
         color: white;
@@ -74,9 +82,11 @@
   <body>
     <a href="/nav" class="return">← Return</a>
 
-    <h1>Listen to The Blue Octavo</h1>
-    <a href="https://open.spotify.com/artist/37enxkHTwRqa3tYL7lX5Aj?si=GOtsNutZSCOebm2iNJevZg" target="_blank" class="link">🝖 Spotify</a>
-    <a href="https://music.apple.com/us/artist/the-blue-octavo/1751416449" class="link">🝓 Apple Music</a>
+    <div class="main-content">
+      <h1>Listen to The Blue Octavo</h1>
+      <a href="https://open.spotify.com/artist/37enxkHTwRqa3tYL7lX5Aj?si=GOtsNutZSCOebm2iNJevZg" target="_blank" class="link">🝖 Spotify</a>
+      <a href="https://music.apple.com/us/artist/the-blue-octavo/1751416449" target="_blank" class="link">🝓 Apple Music</a>
+    </div>
 
     <script>
       const width = window.innerWidth;
