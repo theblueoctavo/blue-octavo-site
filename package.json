@@ -1,5 +1,5 @@
 {
-  "name": "blue-octavo",
+  "name": "blue-octavo-video-homepage",
   "type": "module",
   "scripts": {
     "dev": "astro dev",
@@ -7,6 +7,7 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^4.0.0"
+    "astro": "^4.0.0",
+    "resend": "^4.5.2"
   }
 }

@@ -1,0 +1,134 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Initiation to Ink</title>
+
+    <!-- Handwritten font -->
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+
+    <style>
+      body {
+        margin: 0;
+        padding: 2rem;
+        background: url('/papyrus.png') center center no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: 'Amatic SC', serif;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        animation: fadeIn 1s ease forwards;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        color: #5c0000;
+        margin-bottom: 2rem;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        background: rgba(255, 255, 255, 0.75);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        width: 300px;
+      }
+
+      input, textarea, button {
+        font-family: inherit;
+        font-size: 1rem;
+        padding: 0.5rem;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+      }
+
+      button {
+        background: #5c0000;
+        color: white;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      button:hover {
+        background: #8b0000;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      .return {
+        position: absolute;
+        top: 1.5rem;
+        left: 1.5rem;
+        color: #5c0000;
+        font-size: 1rem;
+        text-decoration: none;
+        border: 1px solid #5c0000;
+        padding: 0.4rem 0.8rem;
+        transition: background 0.3s ease;
+      }
+
+      .return:hover {
+        background: #5c0000;
+        color: white;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <h1>Initiation by Ink</h1>
+    <a href="/nav" class="return">← Return</a>
+
+    <form id="baptism-form">
+      <input type="text" name="name" placeholder="Your True Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <textarea name="message" placeholder="Message to the Blue ctavo (optional)" rows="3"></textarea>
+      <button type="submit">Submit to the Ink</button>
+    </form>
+
+    <script>
+      const form = document.getElementById("baptism-form");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const name = form.name.value;
+        const email = form.email.value;
+
+        const res = await fetch("/.netlify/functions/send-baptism-email", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email }),
+        });
+
+        if (res.ok) {
+            document.body.innerHTML = `
+              <h1 style="color:#5c0000; text-align:center;">🩸 Your Initiation is Complete</h1>
+              <p style="text-align:center; font-size:1.2rem; max-width:600px; margin:auto;">
+                You will receive an email shortly with your sacred title and a secret track. 
+              </p>
+              <p style="text-align:center; font-size:1rem;">Returning to the Blue Octavo in 5 seconds...</p>
+            `;
+
+            setTimeout(() => {
+              window.location.href = "/nav";
+            }, 5000);
+          }
+
+         else {
+          alert("The Ink rejected your offering. Please try again.");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,13 +1,84 @@
----
-import "../styles/global.css";
----
-<html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <title>Music</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blue Octavo | Music</title>
+
+    <!-- Amatic SC for mystical font -->
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: url('/sandtexture.png') center center no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: 'Amatic SC', serif;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        animation: fadeIn 1s ease forwards;
+      }
+
+      h1 {
+        font-size: 3rem;
+        color: white;
+        text-shadow:
+          0 0 5px #ffffff,
+          0 0 15px #cccccc;
+        margin-bottom: 2rem;
+      }
+
+
+
+      a.link {
+        color: white;
+        font-size: 2rem;
+        text-decoration: none;
+        margin: 1rem;
+        transition: transform 0.3s ease, filter 0.3s ease;
+        filter: drop-shadow(0 0 4px white);
+      }
+
+      a.link:hover {
+        transform: translateY(-5px) scale(1.05);
+        filter: drop-shadow(0 0 10px #ff3b3b) drop-shadow(0 0 20px #ff3b3b);
+      }
+
+      /* Return button */
+      .return {
+        position: absolute;
+        top: 1.5rem;
+        left: 1.5rem;
+        color: #ffffff;
+        font-size: 1rem;
+        text-decoration: none;
+        border: 1px solid #ffffff;
+        padding: 0.4rem 0.8rem;
+        transition: background 0.3s ease;
+      }
+
+      .return:hover {
+        background: #ff3b3b;
+        color: black;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+    </style>
   </head>
-  <body class="content-page">
-    <h1>Music</h1>
-    <p>This is a placeholder for the music page.</p>
+
+  <body>
+    <a href="/nav" class="return">← Return</a>
+
+    <h1>Listen to The Blue Octavo</h1>
+    <a href="https://open.spotify.com/artist/37enxkHTwRqa3tYL7lX5Aj?si=GOtsNutZSCOebm2iNJevZg" target="_blank" class="link">🝖 Spotify</a>
+    <a href="https://music.apple.com/us/artist/the-blue-octavo/1751416449" class="link">🝓 Apple Music</a>
   </body>
 </html>

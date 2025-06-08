@@ -1,18 +1,102 @@
----
-import "../styles/global.css";
----
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Blue Octavo</title>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: serif;
+        height: 100%;
+      }
+
+      video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        background-color: black;
+        z-index: -1;
+      }
+
+      .overlay {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fefae0;
+        font-size: 3rem;
+        text-align: center;
+        cursor: pointer;
+        z-index: 1;
+        font-family: 'Amatic SC', serif;
+        text-shadow:
+          0 0 5px #8b0000,
+          0 0 15px #ff4500,
+          0 0 25px #8b0000;
+        animation: pulseGlow 3s ease-in-out infinite, flicker 2s infinite;
+      }
+
+      @keyframes pulseGlow {
+        0%, 100% {
+          text-shadow:
+            0 0 5px #8b0000,
+            0 0 15px #ff4500,
+            0 0 25px #8b0000;
+          transform: translate(-50%, -50%) scale(1);
+        }
+        50% {
+          text-shadow:
+            0 0 10px #ff6347,
+            0 0 20px #ff4500,
+            0 0 30px #ff4500;
+          transform: translate(-50%, -50%) scale(1.05);
+        }
+      }
+
+      @keyframes flicker {
+        0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+          opacity: 1;
+        }
+        20%, 22%, 24%, 55% {
+          opacity: 0.85;
+        }
+      }
+
+
+
+    </style>
   </head>
-  <body class="video-bg">
-    <video autoplay loop muted playsinline id="bg-video">
-      <source src="/background.mp4" type="video/mp4" />
+  <body>
+    <video id="bgVideo" autoplay muted loop playsinline>
+      <!-- fallback -->
+      <source src="/bg-desktop.mp4" type="video/mp4">
     </video>
-    <div class="overlay">
-      <h1>Enter the Blue Octavo</h1>
-      <a href="/nav" class="enter-button">Enter</a>
+
+    <div class="overlay" onclick="window.location.href='/nav'">
+      Enter the Blue Octavo
     </div>
+
+    <script>
+      const video = document.getElementById('bgVideo');
+      const source = video.querySelector('source');
+      const width = window.innerWidth;
+
+      if (width <= 768) {
+        source.src = "/bg-mobile.mp4";
+      } else if (width <= 1024) {
+        source.src = "/bg-tablet.mp4";
+      } else {
+        source.src = "/bg-desktop.mp4";
+      }
+
+      video.load();
+    </script>
   </body>
 </html>
