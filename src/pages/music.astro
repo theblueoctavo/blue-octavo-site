@@ -11,9 +11,9 @@
       body {
         margin: 0;
         padding: 0;
-        background: url('/sandtexture.png') center center no-repeat;
         background-size: cover;
         background-attachment: fixed;
+        background-position: center;
         font-family: 'Amatic SC', serif;
         color: white;
         display: flex;
@@ -33,8 +33,6 @@
         margin-bottom: 2rem;
       }
 
-
-
       a.link {
         color: white;
         font-size: 2rem;
@@ -49,7 +47,6 @@
         filter: drop-shadow(0 0 10px #ff3b3b) drop-shadow(0 0 20px #ff3b3b);
       }
 
-      /* Return button */
       .return {
         position: absolute;
         top: 1.5rem;
@@ -80,5 +77,18 @@
     <h1>Listen to The Blue Octavo</h1>
     <a href="https://open.spotify.com/artist/37enxkHTwRqa3tYL7lX5Aj?si=GOtsNutZSCOebm2iNJevZg" target="_blank" class="link">🝖 Spotify</a>
     <a href="https://music.apple.com/us/artist/the-blue-octavo/1751416449" class="link">🝓 Apple Music</a>
+
+    <script>
+      const width = window.innerWidth;
+      let bg = "/desert-desktop.png";
+
+      if (width <= 768) {
+        bg = "/desert-mobile.png";
+      } else if (width <= 1024) {
+        bg = "/desert-tablet.png";
+      }
+
+      document.body.style.backgroundImage = `url('${bg}')`;
+    </script>
   </body>
 </html>

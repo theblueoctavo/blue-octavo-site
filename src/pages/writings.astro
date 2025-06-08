@@ -8,6 +8,7 @@ const pickRandomEntry = () => {
 const entry = pickRandomEntry();
 ---
 
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -17,9 +18,11 @@ const entry = pickRandomEntry();
 
     <style>
       body {
-        background: url('/papyrus.png') center center no-repeat;
         background-size: cover;
+        background-repeat: no-repeat;
         background-attachment: fixed;
+        background-position: center center;
+
 
         font-family: serif;
         margin: 0;
@@ -123,6 +126,20 @@ const entry = pickRandomEntry();
   <form method="GET" style="text-align:center">
     <button id="reveal-button" type="submit">Reveal Another Verse</button>
   </form>
+
+  <script>
+    const width = window.innerWidth;
+    let bg = "/papyrus-desktop.png";
+
+    if (width <= 768) {
+      bg = "/papyrus-mobile.png";
+    } else if (width <= 1024) {
+      bg = "/papyrus-tablet.png";
+    }
+
+    document.body.style.backgroundImage = `url('${bg}')`;
+  </script>
+
 </body>
 
   
