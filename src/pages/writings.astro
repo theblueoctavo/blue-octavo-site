@@ -1,119 +1,130 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Writings of the Blue Octavo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
-    <script type="module" src="/writings-full.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Writings of the Blue Octavo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center center;
+      font-family: serif;
+      margin: 0;
+      padding: 4rem 2rem;
+      line-height: 1.8;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      justify-content: space-between;
+    }
 
-    <style>
-      body {
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center center;
-        font-family: serif;
-        margin: 0;
-        padding: 4rem 2rem;
-        line-height: 1.8;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        justify-content: space-between;
-      }
+    #writing-container {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      animation: fadeIn 1s ease forwards;
+    }
 
-      #writing-container {
-        max-width: 800px;
-        margin: auto;
-        text-align: center;
-        animation: fadeIn 1s ease forwards;
-      }
+    .title {
+      font-family: 'Amatic SC', serif;
+      font-size: 1.8rem;
+      color: #8b0000;
+      margin-bottom: 1rem;
+      text-shadow:
+        0 0 5px #8b0000,
+        0 0 10px #8b0000,
+        0 0 20px #8b0000,
+        0 0 30px rgba(139, 0, 0, 0.6);
+      animation: ripplePulse 3s ease-in-out infinite;
+    }
 
-      .title {
-        font-family: 'Amatic SC', serif;
-        font-size: 1.8rem;
-        color: #8b0000;
-        margin-bottom: 1rem;
-        text-shadow:
-          0 0 5px #8b0000,
-          0 0 10px #8b0000,
-          0 0 20px #8b0000,
-          0 0 30px rgba(139, 0, 0, 0.6);
-        animation: ripplePulse 3s ease-in-out infinite;
-      }
+    .content {
+      color: #2a1a00;
+      text-shadow: 0 0 1px #fff4e3;
+      font-size: 1.1rem;
+      white-space: pre-line;
+      filter: brightness(1.1);
+    }
 
-      .content {
-        color: #2a1a00;
-        text-shadow: 0 0 1px #fff4e3;
-        font-size: 1.1rem;
-        white-space: pre-line;
-        filter: brightness(1.1);
-      }
+    #reveal-button {
+      margin: 4rem auto 0;
+      padding: 0.8rem 1.6rem;
+      background: none;
+      border: 1px solid #8b0000;
+      color: #8b0000;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
 
-      #reveal-button {
-        margin: 4rem auto 0;
-        padding: 0.8rem 1.6rem;
-        background: none;
-        border: 1px solid #8b0000;
-        color: #8b0000;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background 0.3s ease;
-      }
+    #reveal-button:hover {
+      background: #8b0000;
+      color: black;
+    }
 
-      #reveal-button:hover {
-        background: #8b0000;
-        color: black;
-      }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
+    @keyframes ripplePulse {
+      0%   { transform: scale(1); text-shadow: 0 0 10px #8b0000; }
+      50%  { transform: scale(1.015); text-shadow: 0 0 15px #a10000; }
+      100% { transform: scale(1); text-shadow: 0 0 10px #8b0000; }
+    }
+  </style>
+</head>
 
-      @keyframes ripplePulse {
-        0%   { transform: scale(1); text-shadow: 0 0 10px #8b0000; }
-        50%  { transform: scale(1.015); text-shadow: 0 0 15px #a10000; }
-        100% { transform: scale(1); text-shadow: 0 0 10px #8b0000; }
-      }
-    </style>
-  </head>
+<body>
+  <a href="/nav" style="
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    color: #8b0000;
+    font-size: 1rem;
+    text-decoration: none;
+    border: 1px solid #8b0000;
+    padding: 0.4rem 0.8rem;
+    transition: background 0.3s ease;"
+    onmouseover="this.style.background='#8b0000'; this.style.color='black';"
+    onmouseout="this.style.background='transparent'; this.style.color='#8b0000';"
+  >← Return</a>
 
-  <body>
-    <a href="/nav" style="position: absolute; top: 1.5rem; left: 1.5rem; color: #8b0000; font-size: 1rem; text-decoration: none; border: 1px solid #8b0000; padding: 0.4rem 0.8rem; transition: background 0.3s ease;"
-       onmouseover="this.style.background='#8b0000'; this.style.color='black';"
-       onmouseout="this.style.background='transparent'; this.style.color='#8b0000';">← Return</a>
+  <div id="writing-container">
+    <div class="title">Loading...</div>
+    <div class="content">Please wait...</div>
+  </div>
 
-    <div id="writing-container">
-      <div class="title" id="entry-title"></div>
-      <div class="content" id="entry-content"></div>
-    </div>
+  <form style="text-align:center">
+    <button id="reveal-button" type="button">Reveal Another Verse</button>
+  </form>
 
-    <form style="text-align:center">
-      <button id="reveal-button" type="button">Reveal Another Verse</button>
-    </form>
+  <script>
+    const width = window.innerWidth;
+    let bg = "/papyrus-desktop.png";
+    if (width <= 768) bg = "/papyrus-mobile.png";
+    else if (width <= 1024) bg = "/papyrus-tablet.png";
+    document.body.style.backgroundImage = `url('${bg}')`;
+  </script>
 
-    <script type="module">
-      import { writings } from '/writings-full.js';
+  <script type="module">
+    import { writings } from '/writings-data.js';
 
-      function pickRandomEntry() {
-        return writings[Math.floor(Math.random() * writings.length)];
-      }
+    function pickRandomEntry() {
+      return writings[Math.floor(Math.random() * writings.length)];
+    }
 
-      function renderRandomEntry() {
-        const entry = pickRandomEntry();
-        document.getElementById("entry-title").textContent = entry.title;
-        document.getElementById("entry-content").textContent = entry.content;
-      }
+    function showEntry() {
+      const entry = pickRandomEntry();
+      document.querySelector('.title').innerText = entry.title;
+      document.querySelector('.content').innerText = entry.content;
+    }
 
-      document.getElementById("reveal-button").addEventListener("click", renderRandomEntry);
-      renderRandomEntry();
-
-      const width = window.innerWidth;
-      let bg = "/papyrus-desktop.png";
-      if (width <= 768) bg = "/papyrus-mobile.png";
-      else if (width <= 1024) bg = "/papyrus-tablet.png";
-      document.body.style.backgroundImage = `url('${bg}')`;
-    </script>
-  </body>
+    window.addEventListener('DOMContentLoaded', showEntry);
+    document.getElementById('reveal-button').addEventListener('click', showEntry);
+  </script>
+</body>
 </html>
